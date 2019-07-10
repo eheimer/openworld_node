@@ -1,0 +1,14 @@
+<div id="game-home" v-cloak>
+  <h1><admin-text :value="game.name" :can-edit="admin" @value-updated="updateGameName($event)"></admin-text></h1>
+  <button v-if="admin" @click="deleteGame">Delete Game</button>
+  <button @click="editPlayers">{{ admin? 'Edit' : 'View' }}  Players</button>
+  <h2>{{ character.name }}</h2>
+  <h3>Battles</h3>
+  <hr />
+  <ul v-if="battles.length > 0">
+    <li v-for="battle of battles">Battle{{ battle.id }}<button v-if="admin" @click="deleteBattle(battle.id)">X</button><button @click="joinBattle(battle.id)">Join</button></li>
+  </ul>
+  <p v-else>No current battles.  Get out there and start one!</p>
+  <button @click="newBattle()">New Battle</button>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

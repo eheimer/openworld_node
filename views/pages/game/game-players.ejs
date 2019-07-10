@@ -1,0 +1,11 @@
+<div id="game-players" v-cloak>
+  <h1>{{ game.name }}</h1>
+  <ul>Players
+    <li v-for="player of players">{{player.fullName}}<button v-if="admin" @click="removePlayer(player.id,player.fullName)">Remove</button>
+  </ul>
+  <hr />
+  <ul v-if="admin">Available Players
+    <li v-for="player of availablePlayers">{{player.fullName}}<button @click="addPlayer(player.id)">Add</button>
+  </ul>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

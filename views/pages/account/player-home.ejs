@@ -1,0 +1,16 @@
+<div id="player-home" v-cloak>
+
+  <h1>Player: {{ playerName }}</h1>
+  <hr />
+  <h2>Games</h2>
+  <ol>
+    <li v-for="game in games">{{ game.name }}
+      <span v-if="game.character">({{ game.character.name }})<button @click="playGame(game.id)">Enter</button></span>
+      <button v-else @click="createCharacter(game.id)">Create character</button>
+    </li>
+  </ol>
+  <button @click="createGame()">Create a new game</button>
+  <p>If you don't see your game listed here, check your email for an invite</p>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

@@ -1,0 +1,117 @@
+#battle {
+  @import '../../components/ui/damage-resist.less';
+  @import '../../components/character/battle-character.less';
+  @import '../../components/battle/battle-round.less';
+  @import '../../components/battle/monster-list.less';
+  @import '../../components/battle/battle-damage.less';
+  @import '../../components/battle/monster-container.less';
+  @import '../../components/loot/inventory-container.less';
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content min-content min-content 1fr;
+  grid-template-areas: "Characters Characters" "Round Round" "Damage Damage" "Enemies Friendlies";
+  grid-column-gap: 5px;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* margin: 0 auto; */
+  .detail-overlay {
+    position: absolute;
+    z-index: 999;
+    height: 98%;
+    width: 98%;
+  }
+  .battle-characters {
+    display: flex;
+    grid-area: Characters;
+    overflow: hidden;
+    max-height: 10rem;
+    font-size: 3vmin;
+  }
+  .battle-round {
+    grid-area: Round;
+    overflow: hidden;
+  }
+  .battle-damage {
+    grid-area: Damage;
+    overflow: hidden;
+  }
+  #monsters {
+    grid-area: Enemies;
+  }
+  #friendlies {
+    grid-area: Friendlies;
+  }
+  /*
+  ** Damage Types
+  */
+  .physicalDamage {
+    background-color: gray;
+  }
+  .fireDamage {
+    background-color: red;
+  }
+  .coldDamage {
+    background-color: blue;
+  }
+  .poisonDamage {
+    background-color: green;
+  }
+  .energyDamage {
+    background-color: purple;
+  }
+  /*
+  ** Input display
+  */
+  input {
+    border-style: none;
+    font-family: "Roboto", sans-serif;
+    height: 64px;
+    width: 100px;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: 900;
+    color: #b99d01;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  input[type="checkbox"] {
+    background: red;
+  }
+  input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: rgb(160, 159, 159);
+  }
+  input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: gray;
+  }
+  input:-ms-input-placeholder {
+    /* IE 10+ */
+    color: gray;
+  }
+  input:-moz-placeholder {
+    /* Firefox 18- */
+    color: gray;
+  }
+  /*
+  ** "Close" icon
+  ** this might be split out into a component
+  */
+  #close-icon {
+    background-image: url("/images/close-icon.png");
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    background-color: white;
+    border-radius: 5px;
+  }
+}

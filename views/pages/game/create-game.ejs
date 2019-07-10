@@ -1,0 +1,21 @@
+<div id="create-game" v-cloak>
+
+  <div class="container">
+    <h1 class="text-center">Create a new game</h1>
+    <div class="create-game-form-container">
+      <hr/>
+      <ajax-form action="createGame" :syncing.sync="syncing" :cloud-error.sync="cloudError" :form-data="formData" :form-rules="formRules" :form-errors.sync="formErrors" @submitted="submittedForm()">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Game Name" :class="[formErrors.gameName ? 'is-invalid' : '']" v-model.trim="formData.gameName" focus-first>
+          <div class="invalid-feedback" v-if="formErrors.gameName">A game requires a name.</div>
+        </div>
+        <p class="text-danger" v-if="cloudError==='gameExists'"><small>You already have a game with that name.</small></p>
+        <p class="text-danger" v-else-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+        <div class="form-group">
+          <ajax-button :syncing="syncing" class="btn-dark btn-lg btn-block">Create</ajax-button>
+        </div>
+      </ajax-form>
+    </div>
+  </div>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

@@ -1,0 +1,40 @@
+<div id="battle" v-cloak>
+  <div class="battle-characters">
+    <battle-character v-for="character in battle.participants" 
+      :key="character.id" 
+      :battleid="battle.id"
+      :character-data="character"
+      :owner="character.id === playerCharacter"
+      @character-selection-changed="characterSelect($event)"
+    ></battle-character>
+  </div>
+
+  <battle-round :battleid="battle.id" :round="battle.round"></battle-round>
+
+  <battle-damage
+    :battleid="battle.id"
+    :selected-creatures="selectedCreatures"
+    :selected-characters="selectedCharacters"
+  ></battle-damage>
+
+  <monster-container
+    id="monsters"
+    title="Enemies"
+    :creatures="battle.enemies"
+    :battleid="battle.id"
+    @add-creature="addEnemy($event)"
+    @creature-selection-changed="creatureSelect($event)"
+  ></monster-container>
+  
+  <monster-container
+  id="friendlies"
+    title="Friendlies"
+    :creatures="battle.friendlies"
+    :battleid="battle.id"
+    @add-creature="addFriendly($event)"
+    @creature-selection-changed="creatureSelect($event)"
+  ></monster-container>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */
+exposeLocalsToBrowser() %>

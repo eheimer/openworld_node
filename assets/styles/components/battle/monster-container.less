@@ -1,0 +1,26 @@
+.monster-container {
+  @import '../monster/monster-card.less';
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content 1fr;
+  grid-template-areas: "TITLE" "LIST" "CARDS";
+  grid-column-gap: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  .m-title {
+    grid-area: TITLE;
+    text-align: center;
+  }
+  .m-list {
+    grid-area: LIST;
+  }
+  .m-cards {
+    grid-area: CARDS;
+    overflow: auto;
+    display: flex;
+    flex-flow: wrap;
+  }
+}

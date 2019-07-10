@@ -1,0 +1,117 @@
+[v-cloak] {
+  display: none;
+}
+
+body,
+html {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  /*background-color:black;*/
+  color: white;
+  line-height: 1;
+}
+
+body {
+  background-image: url('/images/sf-bg.jpg');
+  background-size: cover;
+  background-position: 50%;
+}
+
+// body::after {
+//   content: '';
+//   opacity: 0.6;
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   z-index: -1;
+//   width: 100%;
+//   height: 100%;
+// }
+html {
+  background: black;
+}
+
+#page-wrap {
+  //.stretch-page();
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: auto .05fr;
+  grid-template-areas: "B" "F";
+  position: relative;
+  font-size: 5vmin;
+  overflow: hidden;
+  header {
+    a {
+      cursor: pointer;
+    }
+    .dropdown-menu.account-menu {
+      left: auto;
+      right: 0px;
+    }
+  } // App-wide styles for our ajax buttons
+  .ajax-button {
+    .ajax-button();
+  }
+}
+
+#main-content {
+  grid-area: B; //padding: 1vh 1vw;
+  width: 100%;
+  height: 100%;
+  padding: 0.5%;
+  overflow: hidden;
+}
+
+#page-footer {
+  grid-area: F;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: .5em;
+  .xs-only {
+    display: none;
+  }
+}
+
+// body.detected-mobile {
+//   // Above and beyond the media queries below, this selector (which relies on
+//   // `parasails` automatically attaching this class, if appropriate) contains
+//   // styles intended to be activated specifically when loaded from a recognized
+//   // mobile device, regardless of viewport dimensions.  This includes tablet
+//   // devices (like the iPad) as well as handset devices (like the iPhone).
+//   // …
+// }
+// @media (max-width: 800px) {
+//   #page-wrap {
+//     padding-bottom: 75px;
+//     #page-footer {
+//       height: 75px;
+//       .copy,
+//       .nav {
+//         width: 100%;
+//         display: block;
+//         text-align: center;
+//         .nav-item {
+//           display: inline-block;
+//           a {
+//             display: inline-block;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// @media (max-width: 450px) {
+//   #page-wrap {
+//     padding-bottom: 85px;
+//     #page-footer {
+//       height: 85px;
+//       .xs-only {
+//         display: block;
+//       }
+//     }
+//   }
+// }

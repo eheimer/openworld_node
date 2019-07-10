@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"beautify.ignore": [
+			"**/config/routes.js",
+			"**/config/**",
+			"**/api/models/**/*.js",
+			"**/bootstrap/**/*.js",
+			"**/api/services/EnumService.js",
+		]
+	}
+}

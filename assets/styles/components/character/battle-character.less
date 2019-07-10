@@ -1,0 +1,125 @@
+// ///////
+// Character Card Styles
+// //////
+.battle-character {
+  display: grid;
+  grid-template-columns: 3fr 2fr 2fr;
+  grid-template-rows: 2fr 1fr 2fr 1fr 2fr 1fr;
+  grid-template-areas: "CharName Hp BdI""Avat HpL BdIL""Avat Br Sd""Avat BrL SdL""Avat Bd Inv""Resists BdL InvL";
+  grid-column-gap: .2rem;
+  grid-row-gap: .2rem;
+  text-align: center;
+  margin: auto;
+  background: black;
+  border-radius: .5rem;
+  padding: .5rem;
+  font-size: .5em;
+
+  .char-data {
+    background-color: rgba(255, 255, 255, .5);
+  }
+
+  .char-name {
+    grid-area: CharName;
+  }
+
+  .char-avatar {
+    grid-area: Avat;
+  }
+
+  .hp-data {
+    grid-area: Hp;
+  }
+
+  .hp-label {
+    grid-area: HpL;
+  }
+
+  .base-dmg-inc-data {
+    grid-area: BdI;
+  }
+
+  .base-dmg-inc-label {
+    grid-area: BdIL;
+  }
+
+  .base-resist-data {
+    grid-area: Br;
+  }
+
+  .base-resist-label {
+    grid-area: BrL;
+  }
+
+  .spell-dmg-inc-data {
+    grid-area: Sd;
+  }
+
+  .spell-dmg-inc-label {
+    grid-area: SdL;
+  }
+
+  .base-dmg-data {
+    grid-area: Bd;
+  }
+
+  .base-dmg-label {
+    grid-area: BdL;
+  }
+
+  .inv-slots-data {
+    grid-area: Inv;
+  }
+
+  .inv-slots-label {
+    grid-area: InvL;
+  }
+
+  .resists {
+    grid-area: Resists;
+    display: flex;
+  }
+}
+
+.battle-character-expanded {
+  @import url('./character-card-details.less');
+  @import url('./character-paperdoll.less');
+  display: grid;
+  grid-template-columns: auto min-content;
+  grid-template-rows: 80px min-content;
+  grid-template-areas: "Details CharName""Details Resists""Details Paperdoll";
+  grid-column-gap: .2rem;
+  grid-row-gap: .2rem;
+  text-align: center;
+  margin: auto;
+  background: black;
+  border-radius: .5rem;
+  padding: .5rem;
+  font-size: .5em;
+
+  .char-name {
+    text-align: center;
+    font-size: 40px;
+  }
+
+  .resists {
+    font-size: 40px;
+  }
+
+  .character-card-details {
+    grid-area: Details;
+    text-align: left;
+  }
+
+  .character-paperdoll {
+    grid-area: Paperdoll;
+  }
+
+  .char-data {
+    display: none;
+  }
+
+  .char-label {
+    display: none;
+  }
+}
